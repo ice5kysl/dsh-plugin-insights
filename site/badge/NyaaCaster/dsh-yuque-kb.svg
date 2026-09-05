@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="160.5" height="20" role="img" aria-label="dsh plugin health">
-  <title>dsh plugin health: A · 100/100</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="160.5" height="20" role="img" aria-label="plugin health">
+  <title>plugin health: A · 100/100</title>
   <linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient>
   <rect width="160.5" height="20" rx="3" fill="#555"/>
   <rect x="77" width="83.5" height="20" fill="#15803d"/>
