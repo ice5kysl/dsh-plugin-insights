@@ -81,8 +81,8 @@ footer{margin:40px 0 48px;padding-top:18px;border-top:1px solid var(--line);colo
 <div class="article">
 <h2>权威集门禁</h2>
 <p>非 fork / 非归档 · <code>package.json</code> 声明 <code>dsh.bundle.patch</code> · patch 文件已提交。这是下限口径：纯 tarball 分发的插件会进入分桶人工复核（<code>invalid.jsonl</code>）。</p>
-<h2>健康分（health-v1）</h2>
-<p>基分 25 + 加分项（manifest 清单 / README / 双语文档 / LICENSE / 构建产物 / client 导出 / npm 发布 / 版本同步 / 活跃度等）。阈值：<span class="grade A">A ≥ 90</span> <span class="grade B">B ≥ 72</span> <span class="grade C">C ≥ 52</span> <span class="grade D">D</span>。每项打分带证据；缺数据明说降级，不乱判。</p>
+<h2>健康分（health-v2）</h2>
+<p>100 起扣 · warn −5 / fail −20 · 纯客观信号（manifest 规范 / npm 发布与版本一致 / README 与中文文档 / LICENSE / dsh-plugin topic / 活跃度），星数不进分。阈值：<span class="grade A">A ≥ 90</span> <span class="grade B">B ≥ 75</span> <span class="grade C">C ≥ 60</span> <span class="grade D">D</span>。每条扣分带证据；探测不到的数据不虚构、不扣分（missing 明示）。规则全文与 changelog 见 <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">SCHEMA §health</a>。</p>
 <h2>校准</h2>
 <p>已知真/假插件编入校准集，每次快照跑回归（<code>pipeline/validate/regress.mjs</code>），回归非 100% 则当周快照不发布。口径变更必须 bump 规则版本并写 changelog。</p>
 <h2>边界声明</h2>
