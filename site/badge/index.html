@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>健康徽章 · DSH Insights</title>
+<meta name="description" content="把 DSH Insights 客观健康分带进你的 README：徽章的价值、解读与接入方法。">
+<meta property="og:title" content="健康徽章">
+<meta property="og:description" content="把 DSH Insights 客观健康分带进你的 README：徽章的价值、解读与接入方法。">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --bg:#fafafa;--card:#ffffff;--ink:#18181b;--mut:#71717a;--faint:#a1a1aa;--line:#e4e4e7;--track:#f4f4f5;
+  --accent:#2563eb;--ok:#059669;--warn:#d97706;--err:#dc2626;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#09090b;--card:#101012;--ink:#f4f4f5;--mut:#a1a1aa;--faint:#71717a;--line:#26262a;--track:#17171a;--accent:#60a5fa}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1400px;margin:0 auto;padding:0 28px}
+.topbar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:16px}
+[id]{scroll-margin-top:70px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:650;font-size:14px;color:var(--ink);white-space:nowrap}
+.brand:hover{text-decoration:none}
+.mark{width:22px;height:22px;border-radius:6px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:700 12px/1 var(--mono)}
+.brand small{color:var(--faint);font-weight:400;font-size:12px}
+.nav{display:flex;align-items:center;gap:2px}
+.nav a{color:var(--mut);font-size:13px;padding:5px 10px;border-radius:7px}
+.nav a:hover{color:var(--ink);background:var(--track);text-decoration:none}
+.nav a.here{color:var(--ink);font-weight:650}
+@media(max-width:720px){.brand small{display:none}.nav a{padding:5px 7px;font-size:12.5px}}
+main.wrap{padding:48px 28px 8px}
+.content{max-width:1200px;margin:0 auto}
+.article{max-width:78ch}
+.crumb{font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+h1.pagetitle{margin:0 0 8px;font-size:clamp(22px,3.4vw,30px);font-weight:700;letter-spacing:-.02em;line-height:1.25}
+.lede{color:var(--mut);font-size:14px;margin:0 0 28px;max-width:68ch}
+.article h1{font-size:22px;margin:34px 0 10px;letter-spacing:-.02em}
+.article h2{font-size:18px;margin:30px 0 8px;letter-spacing:-.01em}
+.article h3{font-size:15px;margin:24px 0 6px}
+.article h4{font-size:13.5px;margin:20px 0 6px}
+.article p{margin:10px 0}
+.article ul,.article ol{margin:10px 0;padding-left:22px}
+.article li{margin:4px 0}
+.article blockquote{margin:14px 0;padding:10px 14px;border-left:3px solid var(--line);color:var(--mut);background:var(--track);border-radius:0 8px 8px 0;font-size:13px}
+.article code{font:12.5px var(--mono);background:var(--track);border-radius:5px;padding:1px 5px}
+.article pre{background:var(--track);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow:auto;font-size:12.5px}
+.article pre code{background:none;padding:0}
+.article table{width:100%;border-collapse:collapse;font-size:12.5px;margin:14px 0}
+.article th{color:var(--mut);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.05em;text-align:left}
+.article th,.article td{padding:7px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+.article hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+.article strong{font-weight:650}
+.grade{display:inline-block;min-width:22px;text-align:center;font:700 11px/1.5 var(--mono);border-radius:5px;padding:1px 6px;border:1px solid}
+.grade.A{color:var(--ok);background:color-mix(in srgb,var(--ok) 9%,transparent);border-color:color-mix(in srgb,var(--ok) 32%,transparent)}
+.grade.B{color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,transparent);border-color:color-mix(in srgb,var(--accent) 32%,transparent)}
+.grade.C{color:var(--warn);background:color-mix(in srgb,var(--warn) 10%,transparent);border-color:color-mix(in srgb,var(--warn) 35%,transparent)}
+.grade.D{color:var(--err);background:color-mix(in srgb,var(--err) 9%,transparent);border-color:color-mix(in srgb,var(--err) 32%,transparent)}
+.listrow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:12px 2px;border-bottom:1px solid var(--line)}
+.listrow a{font-weight:600;color:var(--ink)}
+.listrow a:hover{color:var(--accent)}
+.listrow .meta{color:var(--faint);font:12px var(--mono);white-space:nowrap}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.card b{display:block;font-size:13px;margin-bottom:4px}
+.card code{font:12px var(--mono);color:var(--accent);word-break:break-all}
+.card p{margin:6px 0 0;font-size:12px;color:var(--mut)}
+.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:11.5px;color:var(--mut);margin:0 6px 6px 0}
+footer{margin:40px 0 48px;padding-top:18px;border-top:1px solid var(--line);color:var(--faint);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <a class="brand" href="../"><span class="mark">d</span>DSH Insights<small>DeepSeek Harness 全景观察站</small></a>
+  <nav class="nav"><a href="../">仪表盘</a><a href="../dynamics/">动态</a><a href="../scenarios/">场景</a><a href="../authors/">作者</a><a href="../weekly/">周报</a><a href="../data/">开放数据</a><a href="../badge/" class="here">徽章</a><a href="../about/">关于</a><a href="https://github.com/ice5kysl/dsh-insights" target="_blank">GitHub ↗</a></nav>
+</div></div>
+<main class="wrap">
+<div class="content">
+<p class="crumb">Badge</p><h1 class="pagetitle">健康徽章 · 把分数带进 README</h1>
+<p class="lede">一枚 SVG 徽章 = 你插件的客观健康分，随每日快照自动刷新。对作者是信任信号与修复指引，对生态是分数走出本站的最小分发单元。</p>
+
+<h2 style="font-size:16px;margin:28px 0 8px">长什么样（真实样例，实时渲染）</h2>
+<div style="display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--line)"><img src="../badge/omdsh-dev/DSH-better-sidebar.svg" alt="omdsh-dev/DSH-better-sidebar badge" style="height:22px"><span style="font-size:12px;color:var(--mut)"><a href="https://github.com/omdsh-dev/DSH-better-sidebar" target="_blank">omdsh-dev/DSH-better-sidebar</a> · A · 100/100</span></div><div style="display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--line)"><img src="../badge/zhu1090093659/dsh-web.svg" alt="zhu1090093659/dsh-web badge" style="height:22px"><span style="font-size:12px;color:var(--mut)"><a href="https://github.com/zhu1090093659/dsh-web" target="_blank">zhu1090093659/dsh-web</a> · B · 85/100</span></div><div style="display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--line)"><img src="../badge/ConsoleSun/Gemini-Eyes.svg" alt="ConsoleSun/Gemini-Eyes badge" style="height:22px"><span style="font-size:12px;color:var(--mut)"><a href="https://github.com/ConsoleSun/Gemini-Eyes" target="_blank">ConsoleSun/Gemini-Eyes</a> · C · 70/100</span></div>
+
+<h2 style="font-size:16px;margin:28px 0 8px">如何解读</h2>
+<p class="lede">徽章显示「等级 · 分数」：100 起扣，warn −5 / fail −20，阈值 <span class="grade A">A ≥ 90</span> <span class="grade B">B ≥ 75</span> <span class="grade C">C ≥ 60</span> <span class="grade D">D</span>。评的是六维框架中的计分四维（工程质量 / 文档完整性 / 可发现性 / 维护活跃），每条扣分都带证据、可在插件页和仪表盘抽屉里逐项核查——<b>分数的意义不在于高低，在于可复核</b>。框架全文见 <a href="../about/">关于 · 指标体系</a>。</p>
+
+<h2 style="font-size:16px;margin:28px 0 8px">为什么值得挂</h2>
+<p class="lede">对作者：潜在用户装前 10 秒的信任凭证；分数提升是看得见的修复回报；徽章链回插件页，带来反链与同类定位。对生态：目录与市场装不下所有插件，但每个 README 都可以挂分数——徽章是让「信得过」在生态里自传播的钩子。我们不做排名、不做安全审计，只提供客观信号。</p>
+
+<h2 style="font-size:16px;margin:28px 0 8px">接入（输入你的仓库，自动生成）</h2>
+<div class="card" style="max-width:720px">
+  <b>你的插件仓库</b>
+  <p><input id="brepo" placeholder="owner/repo，如 ice5kysl/dsh-workspace-kit" style="width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font:13px var(--mono);background:var(--bg);color:var(--ink)"></p>
+  <div id="bprev" style="margin:10px 0;min-height:26px"><span style="color:var(--faint);font-size:12.5px">输入后预览徽章</span></div>
+  <b style="font-size:12.5px">写法一 · 徽章 + 链接插件页（推荐）</b>
+  <pre style="margin:8px 0"><code id="bcode1">[![DSH Insights health](https://dsh-insights.com/badge/owner/repo.svg)](https://dsh-insights.com/p/owner/repo/)</code></pre>
+  <b style="font-size:12.5px">写法二 · 纯徽章</b>
+  <pre style="margin:8px 0"><code id="bcode2">![DSH Insights health](https://dsh-insights.com/badge/owner/repo.svg)</code></pre>
+  <p style="margin-top:8px"><button id="bcopy" style="padding:6px 14px;border:1px solid var(--line);border-radius:8px;background:var(--track);color:var(--ink);font-size:12.5px;cursor:pointer">复制写法一</button> <span id="bcopied" style="font-size:12px;color:var(--ok)"></span></p>
+</div>
+
+<h2 style="font-size:16px;margin:28px 0 8px">说明与边界</h2>
+<p class="lede">徽章内容随每日快照自动更新（GitHub 图片缓存最长一天）；分数掉档不需要你改任何代码。启发式评估 ≠ 安全审计；徽章 404 = 仓库不在当前权威集（可能是门禁未过或校验未覆盖，可到 <a href="https://github.com/ice5kysl/dsh-insights" target="_blank">仓库</a> 提 issue 查询/申诉）。想先本地自查，可用我们的体检工具：<code>npx --yes github:ice5kysl/dsh-plugin-health &lt;owner/repo&gt;</code>。</p>
+<script>
+(function(){
+  var inp=document.getElementById('brepo'),prev=document.getElementById('bprev'),
+      c1=document.getElementById('bcode1'),c2=document.getElementById('bcode2'),
+      btn=document.getElementById('bcopy'),ok=document.getElementById('bcopied');
+  function norm(v){ v=(v||'').trim().replace(/^https?:\/\/github\.com\//,'').replace(/\/+$/,''); return /^[\w.-]+\/[\w.-]+$/.test(v)?v:null }
+  function upd(){ var r=norm(inp.value);
+    if(!r){ prev.innerHTML='<span style="color:var(--faint);font-size:12.5px">输入后预览徽章</span>'; return }
+    prev.textContent='';
+    var img=document.createElement('img');
+    img.src='../badge/'+r+'.svg'; img.style.height='22px'; img.alt=r+' badge';
+    img.onerror=function(){ prev.innerHTML='<span style="font-size:12px;color:var(--warn)">该仓库暂未收录权威集（徽章 404）——可能门禁未过或校验未覆盖</span>' };
+    prev.appendChild(img);
+    c1.textContent='[![DSH Insights health](https://dsh-insights.com/badge/'+r+'.svg)](https://dsh-insights.com/p/'+r+'/)'
+    c2.textContent='![DSH Insights health](https://dsh-insights.com/badge/'+r+'.svg)' }
+  inp.addEventListener('input',upd);
+  btn.addEventListener('click',function(){
+    (navigator.clipboard?navigator.clipboard.writeText(c1.textContent):Promise.reject()).then(function(){ ok.textContent='已复制 ✓' }).catch(function(){ ok.textContent='请手动复制' });
+    setTimeout(function(){ ok.textContent='' },2000) });
+})();
+</script>
+</div>
+<footer>
+  <span>由 <a href="https://github.com/ice5kysl/dsh-insights" target="_blank">DSH Insights</a> 管线自动生成</span>
+  <span>零依赖 · 启发式评估，非安全审计 · 数据 CC BY 4.0 / 代码 MIT</span>
+</footer>
+</main>
+</body>
+</html>
