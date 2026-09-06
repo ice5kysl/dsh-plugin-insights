@@ -34,6 +34,7 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .nav a.here{color:var(--ink);font-weight:650}
 @media(max-width:720px){.brand small{display:none}.nav a{padding:5px 7px;font-size:12.5px}}
 main.wrap{padding:48px 28px 8px}
+.content{max-width:1200px;margin:0 auto}
 .article{max-width:78ch}
 .crumb{font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
 h1.pagetitle{margin:0 0 8px;font-size:clamp(22px,3.4vw,30px);font-weight:700;letter-spacing:-.02em;line-height:1.25}
@@ -78,6 +79,7 @@ footer{margin:40px 0 48px;padding-top:18px;border-top:1px solid var(--line);colo
   <nav class="nav"><a href="../">仪表盘</a><a href="../dynamics/">动态</a><a href="../scenarios/" class="here">场景</a><a href="../authors/">作者</a><a href="../weekly/">周报</a><a href="../data/">开放数据</a><a href="../about/">关于</a><a href="https://github.com/ice5kysl/dsh-insights" target="_blank">GitHub ↗</a></nav>
 </div></div>
 <main class="wrap">
+<div class="content">
 <p class="crumb">Scenarios</p><h1 class="pagetitle">场景组合推荐</h1>
 <p class="lede">从「我要做什么」出发，而不是从「哪个星多」出发。每个场景给出健康分最高、npm 已发布、近期活跃的一组候选与备选——<b>客观信号排序，不接"最佳"叙事，不做付费置顶</b>。覆盖 132 个推荐位，随每日快照刷新。</p>
 <div class="cards"><div class="card"><b>会话归档/回收站管理 <span style="color:var(--faint);font-weight:400;font-size:11.5px">session archive &amp; recycle</span></b><p>6 个候选 · 按健康分/npm/活跃排序 · 标签: archive；描述/主题词命中</p><div class="listrow"><a href="https://github.com/Ultronen/dsh-archived-chats" target="_blank">Ultronen/dsh-archived-chats</a><span class="meta"><span class="grade A">A</span> 100 · ★18 · npm 1.0.7 · 活跃</span></div><div class="listrow"><a href="https://github.com/ice5kysl/dsh-workspace-kit" target="_blank">ice5kysl/dsh-workspace-kit</a><span class="meta"><span class="grade A">A</span> 100 · ★0 · npm 0.1.2 · 活跃</span></div><div class="listrow"><a href="https://github.com/Meredith2328/dsh-sticky-note" target="_blank">Meredith2328/dsh-sticky-note</a><span class="meta"><span class="grade A">A</span> 95 · ★46 · npm 1.0.0 · 活跃</span></div><div class="listrow"><a href="https://github.com/Jimmy0123-ux/dsh-token-pet" target="_blank">Jimmy0123-ux/dsh-token-pet</a><span class="meta"><span class="grade A">A</span> 95 · ★34 · npm 0.1.1 · 活跃</span></div><div class="listrow"><a href="https://github.com/TOBYCAI/dsh-sessions-manager" target="_blank">TOBYCAI/dsh-sessions-manager</a><span class="meta"><span class="grade A">A</span> 95 · ★9 · npm 3.4.0 · 活跃</span></div><div class="listrow"><a href="https://github.com/MS666666/dsh-archive-manager" target="_blank">MS666666/dsh-archive-manager</a><span class="meta"><span class="grade A">A</span> 95 · ★2 · npm 0.1.3 · 活跃</span></div></div>
@@ -104,6 +106,7 @@ footer{margin:40px 0 48px;padding-top:18px;border-top:1px solid var(--line);colo
 <div class="card"><b>数据/研究/量化 <span style="color:var(--faint);font-weight:400;font-size:11.5px">data &amp; research</span></b><p>6 个候选 · 按健康分/npm/活跃排序 · 描述/主题词命中；标签: chart</p><div class="listrow"><a href="https://github.com/Ultronen/dsh-archived-chats" target="_blank">Ultronen/dsh-archived-chats</a><span class="meta"><span class="grade A">A</span> 100 · ★18 · npm 1.0.7 · 活跃</span></div><div class="listrow"><a href="https://github.com/Max-Samson/dsh-usage-chart" target="_blank">Max-Samson/dsh-usage-chart</a><span class="meta"><span class="grade A">A</span> 100 · ★11 · npm 1.1.2 · 活跃</span></div><div class="listrow"><a href="https://github.com/Shiye-10Pages/dsh-whale-meter" target="_blank">Shiye-10Pages/dsh-whale-meter</a><span class="meta"><span class="grade A">A</span> 100 · ★11 · npm 0.1.0 · 活跃</span></div><div class="listrow"><a href="https://github.com/PM25000/dsh-ths-holdings" target="_blank">PM25000/dsh-ths-holdings</a><span class="meta"><span class="grade A">A</span> 100 · ★3 · npm 0.1.7 · 活跃</span></div><div class="listrow"><a href="https://github.com/dream-num/dsh-univer-office" target="_blank">dream-num/dsh-univer-office</a><span class="meta"><span class="grade A">A</span> 95 · ★272 · npm 0.2.14 · 活跃</span></div><div class="listrow"><a href="https://github.com/lamost423/dsh-maze" target="_blank">lamost423/dsh-maze</a><span class="meta"><span class="grade A">A</span> 95 · ★65 · npm 2.1.0 · 活跃</span></div></div></div>
 <h2 style="font-size:16px;margin:28px 0 8px">排序口径</h2>
 <p class="lede">场景归属 = LLM 能力标签 ∪ 词汇桶（标注"LLM 生成，人工抽查"）；场景内排序 = 健康分 → npm 已发布 → 近 30 天活跃，星数仅作展示不参与排序。同样的数据在 <a href="../data/insights.json">/data/insights.json</a> 开放，agent 可直接消费。</p>
+</div>
 <footer>
   <span>由 <a href="https://github.com/ice5kysl/dsh-insights" target="_blank">DSH Insights</a> 管线自动生成</span>
   <span>零依赖 · 启发式评估，非安全审计 · 数据 CC BY 4.0 / 代码 MIT</span>

@@ -34,6 +34,7 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .nav a.here{color:var(--ink);font-weight:650}
 @media(max-width:720px){.brand small{display:none}.nav a{padding:5px 7px;font-size:12.5px}}
 main.wrap{padding:48px 28px 8px}
+.content{max-width:1200px;margin:0 auto}
 .article{max-width:78ch}
 .crumb{font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
 h1.pagetitle{margin:0 0 8px;font-size:clamp(22px,3.4vw,30px);font-weight:700;letter-spacing:-.02em;line-height:1.25}
@@ -78,6 +79,7 @@ footer{margin:40px 0 48px;padding-top:18px;border-top:1px solid var(--line);colo
   <nav class="nav"><a href="../">仪表盘</a><a href="../dynamics/">动态</a><a href="../scenarios/">场景</a><a href="../authors/">作者</a><a href="../weekly/">周报</a><a href="../data/">开放数据</a><a href="../about/" class="here">关于</a><a href="https://github.com/ice5kysl/dsh-insights" target="_blank">GitHub ↗</a></nav>
 </div></div>
 <main class="wrap">
+<div class="content">
 <p class="crumb">About</p><h1 class="pagetitle">关于 · 方法论与指标体系</h1>
 <p class="lede">我们把口径公开到可以被反驳的程度——这是策展人和官方敢引用我们的前提。</p>
 <div class="article">
@@ -118,6 +120,7 @@ footer{margin:40px 0 48px;padding-top:18px;border-top:1px solid var(--line);colo
 <p>启发式评估 ≠ 安全审计。不做社区评分/投票、不做安装托管交易、不做登录产品。深检（写面/消毒）为增量信号，单独标注。</p>
 <h2>可复核</h2>
 <p>数据、规则、管线全部开源：<a href="https://github.com/ice5kysl/dsh-insights" target="_blank">GitHub</a>。发现误判请提 issue —— 争议工单本身是公信力指标（见上表 C 组）。</p>
+</div>
 </div>
 <footer>
   <span>由 <a href="https://github.com/ice5kysl/dsh-insights" target="_blank">DSH Insights</a> 管线自动生成</span>
