@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dsh-insights.com/data/insights.schema.json",
+  "title": "DSH Insights 全量洞察快照（insights.json）",
+  "type": "object",
+  "required": [
+    "$schema",
+    "generatedAt",
+    "ruleVersion",
+    "meta",
+    "plugins"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ruleVersion": {
+      "type": "string",
+      "examples": [
+        "health-v4"
+      ]
+    },
+    "meta": {
+      "type": "object"
+    },
+    "plugins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "full_name",
+          "url",
+          "health"
+        ],
+        "properties": {
+          "full_name": {
+            "type": "string",
+            "description": "owner/repo（join key）"
+          },
+          "url": {
+            "type": "string"
+          },
+          "stars": {
+            "type": "integer"
+          },
+          "license": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "pkgName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "npm": {
+            "type": "object",
+            "properties": {
+              "published": {
+                "type": "boolean"
+              },
+              "latest": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "description": {
+            "type": "string"
+          },
+          "health": {
+            "type": "object",
+            "required": [
+              "score",
+              "grade"
+            ],
+            "properties": {
+              "score": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "grade": {
+                "type": "string",
+                "enum": [
+                  "S",
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ],
+                "description": "S≥95 A≥90 B≥75 C≥60 D<60"
+              },
+              "dimScores": {
+                "type": "object",
+                "properties": {
+                  "eng": {
+                    "type": "integer"
+                  },
+                  "docs": {
+                    "type": "integer"
+                  },
+                  "discover": {
+                    "type": "integer"
+                  },
+                  "maint": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "drops": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "扣分规则 code，口径见 docs/SCHEMA.md §health"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
