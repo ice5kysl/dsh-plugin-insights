@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>致 dsh-subagent-pro 的作者：一期一会 · 体检与建议 · DSH Insights</title>
+<meta name="description" content="hyperion2144/dsh-subagent-pro 的健康体检与改进建议（DSH Insights 自动生成）">
+<link rel="icon" href="../../../favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="../../../logo.svg">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="UMAMI_WEBSITE_ID"></script>
+<meta property="og:title" content="致 dsh-subagent-pro 的作者：一期一会 · 体检与建议">
+<meta property="og:description" content="hyperion2144/dsh-subagent-pro 的健康体检与改进建议（DSH Insights 自动生成）">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://dsh-insights.com/og.png">
+<style>
+:root{
+  --bg:#fafafa;--card:#ffffff;--ink:#18181b;--mut:#71717a;--faint:#a1a1aa;--line:#e4e4e7;--track:#f4f4f5;
+  --accent:#2563eb;--ok:#059669;--warn:#d97706;--err:#dc2626;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#09090b;--card:#101012;--ink:#f4f4f5;--mut:#a1a1aa;--faint:#71717a;--line:#26262a;--track:#17171a;--accent:#60a5fa}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1400px;margin:0 auto;padding:0 28px}
+.topbar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:16px}
+[id]{scroll-margin-top:70px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:650;font-size:14px;color:var(--ink);white-space:nowrap}
+.brand:hover{text-decoration:none}
+.mark{width:22px;height:22px;display:inline-flex;flex:none}
+.brand small{color:var(--faint);font-weight:400;font-size:12px}
+.nav{display:flex;align-items:center;gap:2px}
+.nav a{color:var(--mut);font-size:13px;padding:5px 10px;border-radius:7px}
+.nav a:hover{color:var(--ink);background:var(--track);text-decoration:none}
+.nav a.here{color:var(--ink);font-weight:650}
+@media(max-width:720px){.brand small{display:none}.topbar .wrap{flex-wrap:wrap;height:auto;padding:6px 28px;row-gap:2px}.nav{overflow-x:auto;width:100%;padding-bottom:4px;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav a{padding:5px 7px;font-size:12.5px;white-space:nowrap;flex:none}}
+main.wrap{padding:48px 28px 8px}
+.article{max-width:78ch}
+.crumb{font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+h1.pagetitle{margin:0 0 8px;font-size:clamp(22px,3.4vw,30px);font-weight:700;letter-spacing:-.02em;line-height:1.25}
+.lede{color:var(--mut);font-size:14px;margin:0 0 28px;max-width:880px}
+.article h1{font-size:22px;margin:34px 0 10px;letter-spacing:-.02em}
+.article h2{font-size:18px;margin:30px 0 8px;letter-spacing:-.01em}
+.article h3{font-size:15px;margin:24px 0 6px}
+.article h4{font-size:13.5px;margin:20px 0 6px}
+.article p{margin:10px 0}
+.article ul,.article ol{margin:10px 0;padding-left:22px}
+.article li{margin:4px 0}
+.article blockquote{margin:14px 0;padding:10px 14px;border-left:3px solid var(--line);color:var(--mut);background:var(--track);border-radius:0 8px 8px 0;font-size:13px}
+.article code{font:12.5px var(--mono);background:var(--track);border-radius:5px;padding:1px 5px}
+.article pre{background:var(--track);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow:auto;font-size:12.5px}
+.article pre code{background:none;padding:0}
+.article table{width:100%;border-collapse:collapse;font-size:12.5px;margin:14px 0}
+.article th{color:var(--mut);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.05em;text-align:left}
+.article th,.article td{padding:7px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+.article hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+.article strong{font-weight:650}
+.grade{display:inline-block;min-width:22px;text-align:center;font:700 11px/1.5 var(--mono);border-radius:5px;padding:1px 6px;border:1px solid}
+.grade.S{color:#7c3aed;background:color-mix(in srgb,#7c3aed 9%,transparent);border-color:color-mix(in srgb,#7c3aed 32%,transparent)}
+.grade.A{color:var(--ok);background:color-mix(in srgb,var(--ok) 9%,transparent);border-color:color-mix(in srgb,var(--ok) 32%,transparent)}
+.grade.B{color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,transparent);border-color:color-mix(in srgb,var(--accent) 32%,transparent)}
+.grade.C{color:var(--warn);background:color-mix(in srgb,var(--warn) 10%,transparent);border-color:color-mix(in srgb,var(--warn) 35%,transparent)}
+.grade.D{color:var(--err);background:color-mix(in srgb,var(--err) 9%,transparent);border-color:color-mix(in srgb,var(--err) 32%,transparent)}
+.listrow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:12px 2px;border-bottom:1px solid var(--line)}
+.listrow a{font-weight:600;color:var(--ink);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+.listrow a:hover{color:var(--accent)}
+.listrow .meta{color:var(--faint);font:12px var(--mono);white-space:nowrap;flex:none}
+.scrow{display:flex;flex-direction:column;gap:1px;padding:9px 2px;border-bottom:1px solid var(--line)}
+.scrow a{font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.scrow a:hover{color:var(--accent)}
+.scrow .meta{color:var(--faint);font:11.5px var(--mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.card b{display:block;font-size:13px;margin-bottom:4px}
+.card code{font:12px var(--mono);color:var(--accent);word-break:break-all}
+.card p{margin:6px 0 0;font-size:12px;color:var(--mut)}
+.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:11.5px;color:var(--mut);margin:0 6px 6px 0}
+footer{margin:40px 0 48px;padding-top:18px;border-top:1px solid var(--line);color:var(--faint);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <a class="brand" href="../../../"><span class="mark"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="14" fill="var(--ink)"/><rect x="16" y="34" width="8" height="14" rx="2" fill="var(--bg)"/><rect x="28" y="25" width="8" height="23" rx="2" fill="var(--bg)"/><rect x="40" y="14" width="8" height="34" rx="2" fill="var(--accent)"/></svg></span>DSH Insights<small>DeepSeek Harness 全景观察站</small></a>
+  <nav class="nav"><a href="../../../">仪表盘</a><a href="../../../dynamics/">动态</a><a href="../../../scenarios/">场景</a><a href="../../../authors/">作者</a><a href="../../../weekly/">周报</a><a href="../../../data/">开放数据</a><a href="../../../badge/">徽章</a><a href="../../../about/">关于</a><a href="https://github.com/ice5kysl/dsh-insights" target="_blank">GitHub ↗</a></nav>
+</div></div>
+<main class="wrap">
+<div class="content">
+<p class="crumb">致作者的信 · hyperion2144/dsh-subagent-pro</p>
+<div class="article"><h1>致 dsh-subagent-pro 的作者：一期一会 · 体检与建议</h1><blockquote>hyperion2144/dsh-subagent-pro · 第 1 期（数据快照 2026-09-06）</blockquote><p>你好！我是 <strong>DSH Insights · DeepSeek Harness 全景观察站（dsh-insights.com）</strong> 的自动观测员。这封信聊聊 dsh-subagent-pro 当前的状态，以及本期最值得动手的几件事——数据先行，绝无恭维。</p><p><strong>本期概览：B（83/100）· 在「状态 / 监控 / 用量」类 359 个插件里超过 40% 的同类（同类中位 84）</strong></p><ul><li>★2 · DSH Web extension: live subagent monitor + role-based subagent routing + Claude Code style .dsh/agents/*.md persona injection</li><li>npm：尚未发布</li><li>最近 push 2026-08-23 · 收录：awesome — · imsai —</li></ul><p><strong>做得好的</strong>：client 导出齐备、产物布局规范、files 白名单、npm 版本同步、README 齐备、LICENSE、dsh-plugin topic、已度过新仓观察期、近期活跃 等检查全部通过；按 README 解读，主要能力是「DSH Web扩展：实时监控子代理，按角色路由，并从.dsh/agents/*.md注入人格。」。这些是你的基本盘，保持即可。</p><p><strong>本期最值得做（Top 3，按扣分权重）</strong>：</p><ol><li><strong>发布到 npm</strong> —— 一键安装与进商店的前提。怎么做：npm publish（先查包名是否被占用）。</li><li><strong>补充中英/双语文档</strong> —— 中文生态第一印象。怎么做：加 README.zh-CN.md 并与英文版互链。</li><li><strong>提交 awesome-dsh-plugin</strong> —— 上架主目录（曝光+反链）。怎么做：data/plugins/&lt;owner&gt;__&lt;repo&gt;.yml 提 PR。</li></ol><p>其次还可以考虑：提交 imsai/deepseek1024（覆盖另一主流渠道）。</p><p><strong>能力标签</strong>：live-monitor、role-routing、persona-injection、web-extension、subagent；README 宣称：live subagent monitor；role-based subagent routing；Claude Code style .dsh/agents/*.md persona injection</p><blockquote>注：本期是基线首期。之后每期我们会对比上一期，告诉你分数/名次/收录/下载的<strong>变化</strong>。</blockquote><p><strong>想被更多人看到？</strong> 下面这段可直接复制去提交收录：</p><pre><code>Add hyperion2144/dsh-subagent-pro to the DSH plugin directory (category ui) — a standard Cordis &quot;bundle&quot; plugin targeting @deepseek-ai/dsh ≥ 0.1.1-rc.2.</code></pre><hr><blockquote>由 DSH Insights · DeepSeek Harness 全景观察站（dsh-insights.com） 自动生成 · 数据快照 2026-09-06<br>开源管线 <a href="https://github.com/ice5kysl/dsh-insights" target="_blank">dsh-insights</a> · 每插件体检 <a href="https://github.com/ice5kysl/dsh-plugin-health" target="_blank">dsh-plugin-health</a> · 示例页 https://dsh-insights.com/<br>我们每周还产出<strong>全生态周报</strong>（data/weekly/）——想让你的插件进『优质未收录』观察名单，或想投稿/上榜，欢迎来仓库提 issue/PR。</blockquote><blockquote>注：本报告为启发式数据初稿，非安全审计；打分 100 起扣四档（fail −20 / 较重 −10 / 中 −5 / 轻 −2），阈值 S≥95 · A≥90 · B≥75 · C≥60。</blockquote></div>
+</div>
+<footer>
+  <span>由 <a href="https://github.com/ice5kysl/dsh-insights" target="_blank">DSH Insights</a> 管线自动生成</span>
+  <span>零依赖 · 启发式评估，非安全审计 · 数据 CC BY 4.0 / 代码 MIT</span>
+</footer>
+</main>
+</body>
+</html>
