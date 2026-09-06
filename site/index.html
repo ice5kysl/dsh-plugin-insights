@@ -26,6 +26,12 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 /* ---- topbar ---- */
 .topbar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:16px}
+.subnav{position:sticky;top:56px;z-index:29;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.subnav .wrap{display:flex;align-items:center;gap:2px;height:38px;overflow-x:auto}
+.subnav a{color:var(--mut);font-size:12.5px;padding:4px 10px;border-radius:7px;white-space:nowrap}
+.subnav a:hover{color:var(--ink);background:var(--track);text-decoration:none}
+.nav a.here{color:var(--ink);font-weight:650}
+section[id],div[id="browse"]{scroll-margin-top:108px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:650;font-size:14px;color:var(--ink);white-space:nowrap}
 .brand:hover{text-decoration:none}
 .mark{width:22px;height:22px;border-radius:6px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:700 12px/1 var(--mono)}
@@ -173,7 +179,10 @@ footer{margin:36px 0 48px;padding-top:18px;border-top:1px solid var(--line);colo
 <body>
 <div class="topbar"><div class="wrap">
   <a class="brand" href="#top"><span class="mark">d</span>dsh-insights<small>DeepSeek Harness 全景观察站</small></a>
-  <nav class="nav"><a href="#overview">趋势</a><a href="#quality">质量</a><a href="#rank">榜单</a><a href="#browse">插件库</a><a href="weekly/">周报</a><a href="data/">数据</a><a href="about/">方法论</a><a class="gh" href="https://github.com/ice5kysl/dsh-insights" target="_blank">GitHub ↗</a></nav>
+  <nav class="nav"><a href="./" class="here">仪表盘</a><a href="weekly/">周报</a><a href="data/">开放数据</a><a href="about/">方法论</a><a class="gh" href="https://github.com/ice5kysl/dsh-insights" target="_blank">GitHub ↗</a></nav>
+</div></div>
+<div class="subnav"><div class="wrap">
+  <a href="#overview">趋势</a><a href="#quality">质量</a><a href="#rank">榜单</a><a href="#browse">插件库</a>
 </div></div>
 
 <header class="hero" id="top"><div class="wrap">
@@ -196,6 +205,11 @@ footer{margin:36px 0 48px;padding-top:18px;border-top:1px solid var(--line);colo
 
 <section class="sec" id="overview">
   <div class="sec-h"><span class="sec-n">01</span><h2>生态趋势</h2><p class="sub">增长节奏 · 发布与文档覆盖 · 热门话题</p></div>
+  <div class="panel" style="margin-bottom:14px">
+    <div class="p-h"><h3>覆盖漏斗 · 2113 与 13,592 的关系</h3><span class="p-sub">分桶复核 1274：no-dsh-bundle 505 · no-package.json 454 · no-signal 195 · repo-gone 88 · archived 12</span></div>
+    <div class="hbar"><span class="hbar-l" title="topic:dsh-plugin 全量（2026-09-05 实测）· 官方打标即入、零门槛">topic 宇宙</span><div class="hbar-t"><div class="hbar-f" style="width:100%"></div></div><span class="hbar-v">13592</span></div><div class="hbar"><span class="hbar-l" title="topic 分片全量抓取 + 策展目录 + npm 映射 · 去重">多源候选</span><div class="hbar-t"><div class="hbar-f" style="width:21%"></div></div><span class="hbar-v">2875</span></div><div class="hbar"><span class="hbar-l" title="manifest 门禁逐条核验（断点续跑）">完成校验</span><div class="hbar-t"><div class="hbar-f" style="width:21%"></div></div><span class="hbar-v">2875</span></div><div class="hbar"><span class="hbar-l" title="非 fork/归档 + 声明 dsh.bundle.patch 且 patch 已提交">权威集 ✓</span><div class="hbar-t"><div class="hbar-f" style="width:16%;background:var(--ok)"></div></div><span class="hbar-v">2113</span></div>
+    <p class="p-sub" style="margin-top:10px">topic 是「打标即入」的原始宇宙——含蹭标、无关仓库、fork、monorepo 子路径与已删除仓库；权威集是 manifest 门禁逐条核验后的下限口径。<b>不是收录不全，是过滤后的可信子集</b>；纯 tarball 分发等边界形态进分桶人工复核。口径详见 <a href="about/">方法论</a>。</p>
+  </div>
   <div class="panel" style="margin-bottom:14px">
     <div class="p-h"><h3>权威集新增 · 按周</h3><span class="p-sub">按仓库创建时间归属到周一 · 最近 20 周</span></div>
     <div class="chartbox" id="chart-week"><svg viewBox="0 0 960 200" style="width:100%;height:auto;display:block"><line x1="34" y1="12" x2="954" y2="12" class="grid"/><text x="28" y="15" class="gly">1155</text><line x1="34" y1="66" x2="954" y2="66" class="grid"/><text x="28" y="69" class="gly">770</text><line x1="34" y1="120" x2="954" y2="120" class="grid"/><text x="28" y="123" class="gly">385</text><line x1="34" y1="174" x2="954" y2="174" class="grid"/><text x="28" y="177" class="gly">0</text><text x="34" y="192" class="glx" text-anchor="middle">03-30</text><text x="518.2" y="192" class="glx" text-anchor="middle">06-29</text><text x="954" y="192" class="glx" text-anchor="middle">08-31</text><path d="M34 173.7 L82.4 173.6 L130.8 173.9 L179.3 173.9 L227.7 173.9 L276.1 172.3 L324.5 173.7 L372.9 173.4 L421.4 173.3 L469.8 173.3 L518.2 173.2 L566.6 173.6 L615.1 172.5 L663.5 173.6 L711.9 172.9 L760.3 166.4 L808.7 12 L857.2 99.9 L905.6 145 L954 161.8 L954 174 L34 174 Z" class="area"/><path d="M34 173.7 L82.4 173.6 L130.8 173.9 L179.3 173.9 L227.7 173.9 L276.1 172.3 L324.5 173.7 L372.9 173.4 L421.4 173.3 L469.8 173.3 L518.2 173.2 L566.6 173.6 L615.1 172.5 L663.5 173.6 L711.9 172.9 L760.3 166.4 L808.7 12 L857.2 99.9 L905.6 145 L954 161.8" class="line"/><circle id="ch-dot" r="3.5" class="dot" style="display:none"/><line id="ch-x" class="cross" style="display:none" y1="12" y2="174"/></svg><div class="ch-tip" id="ch-tip"></div></div>
