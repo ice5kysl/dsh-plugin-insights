@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>开放数据 · DSH Insights</title>
-<meta name="description" content="DSH Insights 开放数据集：稳定 URL、可复核口径、CC BY 4.0。">
-<meta property="og:title" content="开放数据">
-<meta property="og:description" content="DSH Insights 开放数据集：稳定 URL、可复核口径、CC BY 4.0。">
+<title>官方动态 · DSH Insights</title>
+<meta name="description" content="dsh 官方与 DeepSeek 平台的可观测动态：releases、dist-tags、rc 兼容信号。">
+<meta property="og:title" content="官方动态">
+<meta property="og:description" content="dsh 官方与 DeepSeek 平台的可观测动态：releases、dist-tags、rc 兼容信号。">
 <meta property="og:type" content="website">
 <style>
 :root{
@@ -75,17 +75,21 @@ footer{margin:40px 0 48px;padding-top:18px;border-top:1px solid var(--line);colo
 <body>
 <div class="topbar"><div class="wrap">
   <a class="brand" href="../"><span class="mark">d</span>DSH Insights<small>DeepSeek Harness 全景观察站</small></a>
-  <nav class="nav"><a href="../">仪表盘</a><a href="../dynamics/">动态</a><a href="../scenarios/">场景</a><a href="../weekly/">周报</a><a href="../data/" class="here">开放数据</a><a href="../about/">关于</a><a href="https://github.com/ice5kysl/dsh-insights" target="_blank">GitHub ↗</a></nav>
+  <nav class="nav"><a href="../">仪表盘</a><a href="../dynamics/" class="here">动态</a><a href="../scenarios/">场景</a><a href="../weekly/">周报</a><a href="../data/">开放数据</a><a href="../about/">关于</a><a href="https://github.com/ice5kysl/dsh-insights" target="_blank">GitHub ↗</a></nav>
 </div></div>
 <main class="wrap">
-<p class="crumb">Open Data</p><h1 class="pagetitle">开放数据</h1>
-<p class="lede">全量、可复核、持续更新。URL 稳定（公布即不变更），agent 可直接抓取，无需登录。使用请注明出处（CC BY 4.0）。</p>
-<div class="cards"><div class="card"><b>全量洞察快照（agent 首选入口）</b><code>/data/insights.json</code><p>1128 KB · <a href="insights.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>权威集全量（一行一插件）</b><code>/data/plugins.jsonl</code><p>3251 KB · <a href="plugins.jsonl">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>噪声分桶（被拒候选 + reason）</b><code>/data/invalid.jsonl</code><p>1008 KB · <a href="invalid.jsonl">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>每插件评分 / 等级 / 分类 / 收录渠道</b><code>/data/enrich.json</code><p>981 KB · <a href="enrich.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>聚合统计（仪表盘数据源）</b><code>/data/analysis.json</code><p>24 KB · <a href="analysis.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>权威集表格（25 列，Excel 友好）</b><code>/data/plugins.csv</code><p>908 KB · <a href="plugins.csv">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>npm 周下载（CI 更新）</b><code>/data/downloads.json</code><p>5 KB · <a href="downloads.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>收录渠道清单（awesome / imsai）</b><code>/data/listed.json</code><p>55 KB · <a href="listed.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div></div>
-<h2 style="font-size:16px;margin:28px 0 8px">许可与口径</h2>
-<p class="lede">代码 <b>MIT</b> · 数据 <b>CC BY 4.0</b>（署名：dsh-insights.com）。「权威集」= 非 fork/归档 + package.json 声明 dsh.bundle.patch 且 patch 已提交（下限口径）。健康分为启发式评估，<b>非安全审计</b>。</p>
-<h2 style="font-size:16px;margin:28px 0 8px">调用示例</h2>
-<pre style="background:var(--track);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:12.5px;overflow:auto"><code>curl https://dsh-insights.com/data/insights.json
-curl https://dsh-insights.com/feed.xml          # 周报 RSS</code></pre>
+<p class="crumb">Official Dynamics</p><h1 class="pagetitle">官方动态</h1>
+<p class="lede">dsh 官方与 DeepSeek 平台的可观测公开信号（releases / dist-tags / 仓库活动），每日随快照刷新。不做新闻舆情。采集于 2026-09-06 02:44 UTC。</p>
+<div class="cards">
+  <div class="card"><b>DeepSeek Harness（dsh 官方）</b><code>deepseek-ai/DeepSeek-Harness</code><p>★213,198 · 最近 push 2026-09-04 · DeepSeek Harness: Everything is a Plugin.</p></div>
+  <div class="card"><b>npm dist-tags</b><code>@deepseek-ai/dsh</code><table style="width:100%;font-size:12.5px;margin-top:8px"><tr><th align="left">tag</th><th align="left">版本</th><th align="left">发布时间</th></tr><tr><td>latest</td><td class="mono">0.1.2-rc.1</td><td>2026-09-03（3 天前）</td></tr><tr><td>alpha</td><td class="mono">0.1.2-alpha.5</td><td>2026-09-02（4 天前）</td></tr><tr><td>next</td><td class="mono">0.1.2-rc.1</td><td>2026-09-03（3 天前）</td></tr></table></div>
+  <div class="card"><b>rc 兼容信号（雷达 v0 前置普查）</b><p>已探测 184 个 npm 插件：声明 <code>engines.dsh</code> 的仅 <b>2</b> 个，声明 dsh peer 依赖的 128 个。<br>声明率太低 → 「声明 vs 最新 rc」的雷达 v0 不成立，主线走 v1（插件 API 符号 × rc changelog 交集，M2）。当前最新 rc：<b>0.1.2-rc.1</b>，升级前请到 <a href="https://github.com/deepseek-ai/DeepSeek-Harness/releases" target="_blank">releases</a> 核对 breaking 说明。</p></div>
+</div>
+<h2 style="font-size:16px;margin:28px 0 8px">dsh 官方 releases（最近 8 个）</h2>
+<div class="listrow"><a href="https://github.com/deepseek-ai/DeepSeek-Harness/releases/tag/dsh-v0.1.3-alpha.1" target="_blank">dsh-v0.1.3-alpha.1 <span class="pill" style="color:var(--warn);border-color:var(--warn)">breaking?</span></a><span class="meta">pre-release · 2026-09-04</span></div><div class="listrow"><a href="https://github.com/deepseek-ai/DeepSeek-Harness/releases/tag/dsh-v0.1.2-rc.1" target="_blank">dsh-v0.1.2-rc.1 <span class="pill" style="color:var(--warn);border-color:var(--warn)">breaking?</span></a><span class="meta">pre-release · 2026-09-03</span></div><div class="listrow"><a href="https://github.com/deepseek-ai/DeepSeek-Harness/releases/tag/dsh-v0.1.2-alpha.5" target="_blank">dsh-v0.1.2-alpha.5</a><span class="meta">pre-release · 2026-09-02</span></div><div class="listrow"><a href="https://github.com/deepseek-ai/DeepSeek-Harness/releases/tag/dsh-v0.1.2-alpha.4" target="_blank">dsh-v0.1.2-alpha.4</a><span class="meta">pre-release · 2026-09-01</span></div><div class="listrow"><a href="https://github.com/deepseek-ai/DeepSeek-Harness/releases/tag/dsh-v0.1.2-alpha.3" target="_blank">dsh-v0.1.2-alpha.3 <span class="pill" style="color:var(--warn);border-color:var(--warn)">breaking?</span></a><span class="meta">pre-release · 2026-08-31</span></div><div class="listrow"><a href="https://github.com/deepseek-ai/DeepSeek-Harness/releases/tag/dsh-v0.1.2-alpha.2" target="_blank">dsh-v0.1.2-alpha.2 <span class="pill" style="color:var(--warn);border-color:var(--warn)">breaking?</span></a><span class="meta">pre-release · 2026-08-30</span></div><div class="listrow"><a href="https://github.com/deepseek-ai/DeepSeek-Harness/releases/tag/dsh-v0.1.2-alpha.1" target="_blank">dsh-v0.1.2-alpha.1 <span class="pill" style="color:var(--warn);border-color:var(--warn)">breaking?</span></a><span class="meta">pre-release · 2026-08-27</span></div><div class="listrow"><a href="https://github.com/deepseek-ai/DeepSeek-Harness/releases/tag/dsh-v0.1.1-rc.2" target="_blank">dsh-v0.1.1-rc.2</a><span class="meta">pre-release · 2026-08-21</span></div>
+<h2 style="font-size:16px;margin:28px 0 8px">DeepSeek 平台官方仓库</h2>
+<div class="listrow"><a href="https://github.com/deepseek-ai/DeepSeek-V3" target="_blank">deepseek-ai/DeepSeek-V3</a><span class="meta">★104,437 · push 2025-08-28 · v1.0.0</span></div><div class="listrow"><a href="https://github.com/deepseek-ai/DeepSeek-R1" target="_blank">deepseek-ai/DeepSeek-R1</a><span class="meta">★92,022 · push 2025-06-27 · v1.0.0</span></div>
+<p class="lede" style="margin-top:18px">只含可观测公开信号（releases / dist-tags / repo 活动），不含新闻舆情。rc 兼容雷达 v0 依赖契约字段声明率，见 /about。</p>
 <footer>
   <span>由 <a href="https://github.com/ice5kysl/dsh-insights" target="_blank">DSH Insights</a> 管线自动生成</span>
   <span>零依赖 · 启发式评估，非安全审计 · 数据 CC BY 4.0 / 代码 MIT</span>
