@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>开放数据 · DSH Insights</title>
-<meta name="description" content="DSH Insights 开放数据集：稳定 URL、可复核口径、CC BY 4.0。">
-<meta property="og:title" content="开放数据">
-<meta property="og:description" content="DSH Insights 开放数据集：稳定 URL、可复核口径、CC BY 4.0。">
-<meta property="og:type" content="website">
+<title>DSH 插件生态周报 · 2026-W33（回填特刊） · DSH Insights</title>
+<meta name="description" content="DSH 插件生态周报（自动生成 · 数据可复核）">
+<meta property="og:title" content="DSH 插件生态周报 · 2026-W33（回填特刊）">
+<meta property="og:description" content="DSH 插件生态周报（自动生成 · 数据可复核）">
+<meta property="og:type" content="article">
 <style>
 :root{
   --bg:#fafafa;--card:#ffffff;--ink:#18181b;--mut:#71717a;--faint:#a1a1aa;--line:#e4e4e7;--track:#f4f4f5;
@@ -75,17 +75,11 @@ footer{margin:40px 0 48px;padding-top:18px;border-top:1px solid var(--line);colo
 <body>
 <div class="topbar"><div class="wrap">
   <a class="brand" href="../"><span class="mark">d</span>DSH Insights<small>DeepSeek Harness 全景观察站</small></a>
-  <nav class="nav"><a href="../">仪表盘</a><a href="../dynamics/">动态</a><a href="../scenarios/">场景</a><a href="../weekly/">周报</a><a href="../data/" class="here">开放数据</a><a href="../about/">关于</a><a href="https://github.com/ice5kysl/dsh-insights" target="_blank">GitHub ↗</a></nav>
+  <nav class="nav"><a href="../">仪表盘</a><a href="../dynamics/">动态</a><a href="../scenarios/">场景</a><a href="../weekly/" class="here">周报</a><a href="../data/">开放数据</a><a href="../about/">关于</a><a href="https://github.com/ice5kysl/dsh-insights" target="_blank">GitHub ↗</a></nav>
 </div></div>
 <main class="wrap">
-<p class="crumb">Open Data</p><h1 class="pagetitle">开放数据</h1>
-<p class="lede">全量、可复核、持续更新。URL 稳定（公布即不变更），agent 可直接抓取，无需登录。使用请注明出处（CC BY 4.0）。</p>
-<div class="cards"><div class="card"><b>全量洞察快照（agent 首选入口）</b><code>/data/insights.json</code><p>1128 KB · <a href="insights.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>权威集全量（一行一插件）</b><code>/data/plugins.jsonl</code><p>3392 KB · <a href="plugins.jsonl">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>噪声分桶（被拒候选 + reason）</b><code>/data/invalid.jsonl</code><p>1086 KB · <a href="invalid.jsonl">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>每插件评分 / 等级 / 分类 / 收录渠道</b><code>/data/enrich.json</code><p>981 KB · <a href="enrich.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>聚合统计（仪表盘数据源）</b><code>/data/analysis.json</code><p>24 KB · <a href="analysis.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>权威集表格（25 列，Excel 友好）</b><code>/data/plugins.csv</code><p>908 KB · <a href="plugins.csv">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>npm 周下载（CI 更新）</b><code>/data/downloads.json</code><p>5 KB · <a href="downloads.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>收录渠道清单（awesome / imsai）</b><code>/data/listed.json</code><p>55 KB · <a href="listed.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div></div>
-<h2 style="font-size:16px;margin:28px 0 8px">许可与口径</h2>
-<p class="lede">代码 <b>MIT</b> · 数据 <b>CC BY 4.0</b>（署名：dsh-insights.com）。「权威集」= 非 fork/归档 + package.json 声明 dsh.bundle.patch 且 patch 已提交（下限口径）。健康分为启发式评估，<b>非安全审计</b>。</p>
-<h2 style="font-size:16px;margin:28px 0 8px">调用示例</h2>
-<pre style="background:var(--track);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:12.5px;overflow:auto"><code>curl https://dsh-insights.com/data/insights.json
-curl https://dsh-insights.com/feed.xml          # 周报 RSS</code></pre>
+<p class="crumb">生态周报 · 2026-W33</p>
+<div class="article"><h1>DSH 插件生态周报 · 2026-W33（回填特刊）</h1><blockquote>回填于 2026-09-06 · 覆盖 2026-08-10 → 2026-08-17 · 由 DSH Insights（dsh-insights.com）重建<br><br><strong>口径说明</strong>：本期为历史回填——「新增」按仓库创建时间归属；星数、健康分、下载为<strong>当前快照</strong>值（时间层快照自 2026-09-05 起才开始累积），仅用于定位，不代表当周读数。</blockquote><h2>本期速览</h2><ul><li>当周新增候选仓库 <strong>5760</strong>（累计 6555）· 其中现属权威集 <strong>1662</strong>（累计 1802）</li><li>当周诞生队列质量（当前评分）：平均 87.4 · A 649 · B 651 · C 5 · D 0</li><li>官方版本发布 6 个：<code>0.0.1-rc.1</code>（2026-08-10，pre）、<code>0.0.1-rc.2</code>（2026-08-11，pre）、<code>0.0.1-rc.5</code>（2026-08-12，pre）、<code>0.1.0-rc.2</code>（2026-08-13，pre）、<code>0.1.0-rc.3</code>（2026-08-13，pre）、<code>0.1.0-rc.6</code>（2026-08-13，pre）</li></ul><h2>官方动态（当周）</h2><ul><li><code>@deepseek-ai/dsh@0.0.1-rc.1</code> · 2026-08-10 · pre-release</li><li><code>@deepseek-ai/dsh@0.0.1-rc.2</code> · 2026-08-11 · pre-release</li><li><code>@deepseek-ai/dsh@0.0.1-rc.5</code> · 2026-08-12 · pre-release</li><li><code>@deepseek-ai/dsh@0.1.0-rc.2</code> · 2026-08-13 · pre-release</li><li><code>@deepseek-ai/dsh@0.1.0-rc.3</code> · 2026-08-13 · pre-release</li><li><code>@deepseek-ai/dsh@0.1.0-rc.6</code> · 2026-08-13 · pre-release</li></ul><h2>当周诞生 · 插件龙虎榜（按当前 ★）</h2><table><thead><tr><th>插件</th><th>当前 ★</th><th>当前等级</th><th>npm</th></tr></thead><tbody><tr><td>yjh051108/dsh-routing-suite</td><td>7080</td><td>A</td><td>—</td></tr><tr><td>zhu1090093659/dsh-web</td><td>6887</td><td>B</td><td>—</td></tr><tr><td>dsh-market/dsh-market</td><td>3196</td><td>A</td><td>1.43.0</td></tr><tr><td>ccch1mneyyy/dsh-TUI</td><td>2837</td><td>B</td><td>—</td></tr><tr><td>NanmiCoder/dsh-agent-teams</td><td>1372</td><td>A</td><td>—</td></tr><tr><td>bowenliang123/dsh-context</td><td>1286</td><td>A</td><td>0.42.0</td></tr><tr><td>xmanrui/dsh-im</td><td>1110</td><td>B</td><td>—</td></tr><tr><td>ysr666/dsh-vision-router</td><td>1070</td><td>B</td><td>2.1.2</td></tr></tbody></table><hr><blockquote>回填特刊由 DSH Insights 基于创建时间重建 · 正式周报自 2026-W36 起每周五自动发布：https://dsh-insights.com/weekly/</blockquote></div>
 <footer>
   <span>由 <a href="https://github.com/ice5kysl/dsh-insights" target="_blank">DSH Insights</a> 管线自动生成</span>
   <span>零依赖 · 启发式评估，非安全审计 · 数据 CC BY 4.0 / 代码 MIT</span>
