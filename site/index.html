@@ -82,6 +82,17 @@ section[id],div[id="browse"]{scroll-margin-top:108px}
 .legend{display:flex;flex-direction:column;gap:7px;font-size:12.5px;color:var(--mut)}
 .legend b{color:var(--ink);font-family:var(--mono);font-weight:600;font-variant-numeric:tabular-nums}
 .legend i{display:inline-block;width:9px;height:9px;border-radius:2.5px;margin-right:7px;vertical-align:-1px}
+.donut .dseg{transition:opacity .15s;cursor:pointer}
+.donut.has-sel .dseg{opacity:.22}
+.donut.has-sel .dseg.sel{opacity:1}
+.donut .dnum{font:700 14px var(--mono);fill:var(--ink);text-anchor:middle}
+.donut .dlab{font:9px var(--mono);fill:var(--faint);text-anchor:middle}
+.dleg{cursor:pointer;border-radius:6px;padding:1px 5px;margin:-1px -5px}
+.dleg:hover,.dleg.sel{background:var(--track);color:var(--ink)}
+.hbar{transition:background .12s;border-radius:6px}
+.hbar:hover{background:var(--track)}
+.hbar:hover .hbar-f{filter:brightness(1.2)}
+.gtip{position:fixed;z-index:70;pointer-events:none;background:var(--ink);color:var(--bg);font:11.5px var(--mono);padding:4px 9px;border-radius:6px;display:none;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.18)}
 .chartbox{position:relative}
 .chartbox .grid{stroke:var(--line);stroke-width:1}
 .chartbox .gly{font:10px var(--mono);fill:var(--faint);text-anchor:end}
@@ -207,7 +218,7 @@ footer{margin:36px 0 48px;padding-top:18px;border-top:1px solid var(--line);colo
   <div class="sec-h"><span class="sec-n">01</span><h2>生态趋势</h2><p class="sub">增长节奏 · 发布与文档覆盖 · 热门话题</p></div>
   <div class="panel" style="margin-bottom:14px">
     <div class="p-h"><h3>覆盖漏斗 · 2113 与 13,592 的关系</h3><span class="p-sub">分桶复核 1274：no-dsh-bundle 505 · no-package.json 454 · no-signal 195 · repo-gone 88 · archived 12</span></div>
-    <div class="hbar"><span class="hbar-l" title="topic:dsh-plugin 全量（2026-09-05 实测）· 官方打标即入、零门槛">topic 宇宙</span><div class="hbar-t"><div class="hbar-f" style="width:100%"></div></div><span class="hbar-v">13592</span></div><div class="hbar"><span class="hbar-l" title="topic 分片全量抓取 + 策展目录 + npm 映射 · 去重">多源候选</span><div class="hbar-t"><div class="hbar-f" style="width:21%"></div></div><span class="hbar-v">2875</span></div><div class="hbar"><span class="hbar-l" title="manifest 门禁逐条核验（断点续跑）">完成校验</span><div class="hbar-t"><div class="hbar-f" style="width:21%"></div></div><span class="hbar-v">2875</span></div><div class="hbar"><span class="hbar-l" title="非 fork/归档 + 声明 dsh.bundle.patch 且 patch 已提交">权威集 ✓</span><div class="hbar-t"><div class="hbar-f" style="width:16%;background:var(--ok)"></div></div><span class="hbar-v">2113</span></div>
+    <div class="hbar" data-tip="topic:dsh-plugin 全量（2026-09-05 实测）· 官方打标即入、零门槛"><span class="hbar-l" title="topic:dsh-plugin 全量（2026-09-05 实测）· 官方打标即入、零门槛">topic 宇宙</span><div class="hbar-t"><div class="hbar-f" style="width:100%"></div></div><span class="hbar-v">13592</span></div><div class="hbar" data-tip="topic 分片全量抓取 + 策展目录 + npm 映射 · 去重"><span class="hbar-l" title="topic 分片全量抓取 + 策展目录 + npm 映射 · 去重">多源候选</span><div class="hbar-t"><div class="hbar-f" style="width:21%"></div></div><span class="hbar-v">2875</span></div><div class="hbar" data-tip="manifest 门禁逐条核验（断点续跑）"><span class="hbar-l" title="manifest 门禁逐条核验（断点续跑）">完成校验</span><div class="hbar-t"><div class="hbar-f" style="width:21%"></div></div><span class="hbar-v">2875</span></div><div class="hbar" data-tip="非 fork/归档 + 声明 dsh.bundle.patch 且 patch 已提交"><span class="hbar-l" title="非 fork/归档 + 声明 dsh.bundle.patch 且 patch 已提交">权威集 ✓</span><div class="hbar-t"><div class="hbar-f" style="width:16%;background:var(--ok)"></div></div><span class="hbar-v">2113</span></div>
     <p class="p-sub" style="margin-top:10px">topic 是「打标即入」的原始宇宙——含蹭标、无关仓库、fork、monorepo 子路径与已删除仓库；权威集是 manifest 门禁逐条核验后的下限口径。<b>不是收录不全，是过滤后的可信子集</b>；纯 tarball 分发等边界形态进分桶人工复核。口径详见 <a href="about/">方法论</a>。</p>
   </div>
   <div class="panel" style="margin-bottom:14px">
@@ -217,24 +228,24 @@ footer{margin:36px 0 48px;padding-top:18px;border-top:1px solid var(--line);colo
   <div class="cards">
     <div class="panel">
       <h3>npm 发布分布</h3><p class="p-sub">已发布 vs 未发布 · 版本滞后 253</p>
-      <div class="donutwrap"><svg width="118" height="118" viewBox="0 0 118 118" style="flex:none"><circle cx="59" cy="59" r="48.5" fill="none" stroke="var(--ink)" stroke-width="21" stroke-dasharray="151.4 304.7" stroke-dashoffset="0.0"/><circle cx="59" cy="59" r="48.5" fill="none" stroke="var(--track2)" stroke-width="21" stroke-dasharray="153.3 304.7" stroke-dashoffset="-151.4"/><circle cx="59" cy="59" r="34.92" fill="var(--card)"/></svg><div class="legend">
-        <div><i style="background:var(--ink)"></i>已发布 <b>1050</b></div>
-        <div><i style="background:var(--track2)"></i>未发布 <b>1063</b></div>
+      <div class="donutwrap"><svg class="donut" data-total="2113" width="118" height="118" viewBox="0 0 118 118" style="flex:none"><circle class="dseg" data-i="0" cx="59" cy="59" r="48.5" fill="none" stroke="var(--ink)" stroke-width="21" stroke-dasharray="151.4 304.7" stroke-dashoffset="0.0" data-tip="已发布 · 1050（49.7%）"/><circle class="dseg" data-i="1" cx="59" cy="59" r="48.5" fill="none" stroke="var(--track2)" stroke-width="21" stroke-dasharray="153.3 304.7" stroke-dashoffset="-151.4" data-tip="未发布 · 1063（50.3%）"/><circle cx="59" cy="59" r="34.92" fill="var(--card)"/><text class="dnum" x="59" y="62">2113</text><text class="dlab" x="59" y="75">总计</text></svg><div class="legend">
+        <div class="dleg" data-i="0"><i style="background:var(--ink)"></i>已发布 <b>1050</b></div>
+        <div class="dleg" data-i="1"><i style="background:var(--track2)"></i>未发布 <b>1063</b></div>
         <div style="color:var(--warn)">版本滞后 253</div>
       </div></div>
     </div>
     <div class="panel">
       <h3>i18n · 文档语言足迹</h3><p class="p-sub">按 README 检出：双语 / 含中文 / 单语 / 无 · 多语言(ja/ko/…)检测规划见 M1</p>
-      <div class="donutwrap"><svg width="118" height="118" viewBox="0 0 118 118" style="flex:none"><circle cx="59" cy="59" r="48.5" fill="none" stroke="#18181b" stroke-width="21" stroke-dasharray="112.9 304.7" stroke-dashoffset="0.0"/><circle cx="59" cy="59" r="48.5" fill="none" stroke="#52525b" stroke-width="21" stroke-dasharray="1.4 304.7" stroke-dashoffset="-112.9"/><circle cx="59" cy="59" r="48.5" fill="none" stroke="#a1a1aa" stroke-width="21" stroke-dasharray="188.5 304.7" stroke-dashoffset="-114.4"/><circle cx="59" cy="59" r="48.5" fill="none" stroke="#e4e4e7" stroke-width="21" stroke-dasharray="1.9 304.7" stroke-dashoffset="-302.9"/><circle cx="59" cy="59" r="34.92" fill="var(--card)"/></svg><div class="legend">
-        <div><i style="background:#18181b"></i>双语(EN+中文) <b>783</b></div>
-        <div><i style="background:#52525b"></i>含中文（i18n 样本） <b>10</b></div>
-        <div><i style="background:#a1a1aa"></i>单语（基础 README） <b>1307</b></div>
-        <div><i style="background:#e4e4e7"></i>无 README <b>13</b></div>
+      <div class="donutwrap"><svg class="donut" data-total="2113" width="118" height="118" viewBox="0 0 118 118" style="flex:none"><circle class="dseg" data-i="0" cx="59" cy="59" r="48.5" fill="none" stroke="#18181b" stroke-width="21" stroke-dasharray="112.9 304.7" stroke-dashoffset="0.0" data-tip="双语(EN+中文) · 783（37.1%）"/><circle class="dseg" data-i="1" cx="59" cy="59" r="48.5" fill="none" stroke="#52525b" stroke-width="21" stroke-dasharray="1.4 304.7" stroke-dashoffset="-112.9" data-tip="含中文 · 10（0.5%）"/><circle class="dseg" data-i="2" cx="59" cy="59" r="48.5" fill="none" stroke="#a1a1aa" stroke-width="21" stroke-dasharray="188.5 304.7" stroke-dashoffset="-114.4" data-tip="单语 · 1307（61.9%）"/><circle class="dseg" data-i="3" cx="59" cy="59" r="48.5" fill="none" stroke="#e4e4e7" stroke-width="21" stroke-dasharray="1.9 304.7" stroke-dashoffset="-302.9" data-tip="无 README · 13（0.6%）"/><circle cx="59" cy="59" r="34.92" fill="var(--card)"/><text class="dnum" x="59" y="62">2113</text><text class="dlab" x="59" y="75">总计</text></svg><div class="legend">
+        <div class="dleg" data-i="0"><i style="background:#18181b"></i>双语(EN+中文) <b>783</b></div>
+        <div class="dleg" data-i="1"><i style="background:#52525b"></i>含中文（i18n 样本） <b>10</b></div>
+        <div class="dleg" data-i="2"><i style="background:#a1a1aa"></i>单语（基础 README） <b>1307</b></div>
+        <div class="dleg" data-i="3"><i style="background:#e4e4e7"></i>无 README <b>13</b></div>
       </div></div>
     </div>
     <div class="panel">
       <h3>Top topics</h3><p class="p-sub">仓库自声明 topic · Top 8</p>
-      <div class="hbar"><span class="hbar-l" title="dsh-plugin">dsh-plugin</span><div class="hbar-t"><div class="hbar-f" style="width:100%"></div></div><span class="hbar-v">2029</span></div><div class="hbar"><span class="hbar-l" title="deepseek-harness">deepseek-harness</span><div class="hbar-t"><div class="hbar-f" style="width:71%"></div></div><span class="hbar-v">1446</span></div><div class="hbar"><span class="hbar-l" title="dsh">dsh</span><div class="hbar-t"><div class="hbar-f" style="width:51%"></div></div><span class="hbar-v">1033</span></div><div class="hbar"><span class="hbar-l" title="deepseek">deepseek</span><div class="hbar-t"><div class="hbar-f" style="width:18%"></div></div><span class="hbar-v">356</span></div><div class="hbar"><span class="hbar-l" title="cordis">cordis</span><div class="hbar-t"><div class="hbar-f" style="width:13%"></div></div><span class="hbar-v">270</span></div><div class="hbar"><span class="hbar-l" title="dsh-plugins">dsh-plugins</span><div class="hbar-t"><div class="hbar-f" style="width:13%"></div></div><span class="hbar-v">256</span></div><div class="hbar"><span class="hbar-l" title="plugin">plugin</span><div class="hbar-t"><div class="hbar-f" style="width:9%"></div></div><span class="hbar-v">181</span></div><div class="hbar"><span class="hbar-l" title="cordis-plugin">cordis-plugin</span><div class="hbar-t"><div class="hbar-f" style="width:7%"></div></div><span class="hbar-v">132</span></div>
+      <div class="hbar" data-tip="dsh-plugin"><span class="hbar-l" title="dsh-plugin">dsh-plugin</span><div class="hbar-t"><div class="hbar-f" style="width:100%"></div></div><span class="hbar-v">2029</span></div><div class="hbar" data-tip="deepseek-harness"><span class="hbar-l" title="deepseek-harness">deepseek-harness</span><div class="hbar-t"><div class="hbar-f" style="width:71%"></div></div><span class="hbar-v">1446</span></div><div class="hbar" data-tip="dsh"><span class="hbar-l" title="dsh">dsh</span><div class="hbar-t"><div class="hbar-f" style="width:51%"></div></div><span class="hbar-v">1033</span></div><div class="hbar" data-tip="deepseek"><span class="hbar-l" title="deepseek">deepseek</span><div class="hbar-t"><div class="hbar-f" style="width:18%"></div></div><span class="hbar-v">356</span></div><div class="hbar" data-tip="cordis"><span class="hbar-l" title="cordis">cordis</span><div class="hbar-t"><div class="hbar-f" style="width:13%"></div></div><span class="hbar-v">270</span></div><div class="hbar" data-tip="dsh-plugins"><span class="hbar-l" title="dsh-plugins">dsh-plugins</span><div class="hbar-t"><div class="hbar-f" style="width:13%"></div></div><span class="hbar-v">256</span></div><div class="hbar" data-tip="plugin"><span class="hbar-l" title="plugin">plugin</span><div class="hbar-t"><div class="hbar-f" style="width:9%"></div></div><span class="hbar-v">181</span></div><div class="hbar" data-tip="cordis-plugin"><span class="hbar-l" title="cordis-plugin">cordis-plugin</span><div class="hbar-t"><div class="hbar-f" style="width:7%"></div></div><span class="hbar-v">132</span></div>
     </div>
   </div>
 </section>
@@ -244,11 +255,11 @@ footer{margin:36px 0 48px;padding-top:18px;border-top:1px solid var(--line);colo
   <div class="cards">
     <div class="panel">
       <h3>质量分级</h3><p class="p-sub">平均分 87.2 · A+B 99.4%</p>
-      <div class="hbar"><span class="hbar-l">A</span><div class="hbar-t"><div class="hbar-f" style="width:97%;background:var(--ok)"></div></div><span class="hbar-v">1035</span></div><div class="hbar"><span class="hbar-l">B</span><div class="hbar-t"><div class="hbar-f" style="width:100%;background:var(--accent)"></div></div><span class="hbar-v">1065</span></div><div class="hbar"><span class="hbar-l">C</span><div class="hbar-t"><div class="hbar-f" style="width:2%;background:var(--warn)"></div></div><span class="hbar-v">13</span></div><div class="hbar"><span class="hbar-l">D</span><div class="hbar-t"><div class="hbar-f" style="width:2%;background:var(--err)"></div></div><span class="hbar-v">0</span></div>
+      <div class="hbar" data-tip="A · 1035"><span class="hbar-l">A</span><div class="hbar-t"><div class="hbar-f" style="width:97%;background:var(--ok)"></div></div><span class="hbar-v">1035</span></div><div class="hbar" data-tip="B · 1065"><span class="hbar-l">B</span><div class="hbar-t"><div class="hbar-f" style="width:100%;background:var(--accent)"></div></div><span class="hbar-v">1065</span></div><div class="hbar" data-tip="C · 13"><span class="hbar-l">C</span><div class="hbar-t"><div class="hbar-f" style="width:2%;background:var(--warn)"></div></div><span class="hbar-v">13</span></div><div class="hbar" data-tip="D · 0"><span class="hbar-l">D</span><div class="hbar-t"><div class="hbar-f" style="width:2%;background:var(--err)"></div></div><span class="hbar-v">0</span></div>
     </div>
     <div class="panel">
       <h3>功能分类</h3><p class="p-sub">按名称/描述归类 · Top 8</p>
-      <div class="hbar"><span class="hbar-l" title="其它">其它</span><div class="hbar-t"><div class="hbar-f" style="width:100%"></div></div><span class="hbar-v">519</span></div><div class="hbar"><span class="hbar-l" title="模型 / 代理">模型 / 代理</span><div class="hbar-t"><div class="hbar-f" style="width:46%"></div></div><span class="hbar-v">241</span></div><div class="hbar"><span class="hbar-l" title="文件浏览 / 预览">文件浏览 / 预览</span><div class="hbar-t"><div class="hbar-f" style="width:42%"></div></div><span class="hbar-v">220</span></div><div class="hbar"><span class="hbar-l" title="会话管理">会话管理</span><div class="hbar-t"><div class="hbar-f" style="width:42%"></div></div><span class="hbar-v">217</span></div><div class="hbar"><span class="hbar-l" title="状态 / 监控 / 用量">状态 / 监控 / 用量</span><div class="hbar-t"><div class="hbar-f" style="width:34%"></div></div><span class="hbar-v">177</span></div><div class="hbar"><span class="hbar-l" title="搜索 / 命令面板">搜索 / 命令面板</span><div class="hbar-t"><div class="hbar-f" style="width:29%"></div></div><span class="hbar-v">149</span></div><div class="hbar"><span class="hbar-l" title="工具 / 效率">工具 / 效率</span><div class="hbar-t"><div class="hbar-f" style="width:28%"></div></div><span class="hbar-v">147</span></div><div class="hbar"><span class="hbar-l" title="侧栏 / 工作区">侧栏 / 工作区</span><div class="hbar-t"><div class="hbar-f" style="width:28%"></div></div><span class="hbar-v">145</span></div>
+      <div class="hbar" data-tip="其它"><span class="hbar-l" title="其它">其它</span><div class="hbar-t"><div class="hbar-f" style="width:100%"></div></div><span class="hbar-v">519</span></div><div class="hbar" data-tip="模型 / 代理"><span class="hbar-l" title="模型 / 代理">模型 / 代理</span><div class="hbar-t"><div class="hbar-f" style="width:46%"></div></div><span class="hbar-v">241</span></div><div class="hbar" data-tip="文件浏览 / 预览"><span class="hbar-l" title="文件浏览 / 预览">文件浏览 / 预览</span><div class="hbar-t"><div class="hbar-f" style="width:42%"></div></div><span class="hbar-v">220</span></div><div class="hbar" data-tip="会话管理"><span class="hbar-l" title="会话管理">会话管理</span><div class="hbar-t"><div class="hbar-f" style="width:42%"></div></div><span class="hbar-v">217</span></div><div class="hbar" data-tip="状态 / 监控 / 用量"><span class="hbar-l" title="状态 / 监控 / 用量">状态 / 监控 / 用量</span><div class="hbar-t"><div class="hbar-f" style="width:34%"></div></div><span class="hbar-v">177</span></div><div class="hbar" data-tip="搜索 / 命令面板"><span class="hbar-l" title="搜索 / 命令面板">搜索 / 命令面板</span><div class="hbar-t"><div class="hbar-f" style="width:29%"></div></div><span class="hbar-v">149</span></div><div class="hbar" data-tip="工具 / 效率"><span class="hbar-l" title="工具 / 效率">工具 / 效率</span><div class="hbar-t"><div class="hbar-f" style="width:28%"></div></div><span class="hbar-v">147</span></div><div class="hbar" data-tip="侧栏 / 工作区"><span class="hbar-l" title="侧栏 / 工作区">侧栏 / 工作区</span><div class="hbar-t"><div class="hbar-f" style="width:28%"></div></div><span class="hbar-v">145</span></div>
     </div>
     <div class="panel">
       <h3>场景推荐 · 各分类首选</h3><p class="p-sub">每个分类里质量/活跃度最高 · 点击行看详情</p>
@@ -344,9 +355,9 @@ let q='',npm='',zh='',act='',gr='',sort=-1,desc=false,page=0,PAGE=120;
   var box=$('#chart-week'); if(!box||!WKPTS.length)return;
   var dot=$('#ch-dot'),cross=$('#ch-x'),tip=$('#ch-tip');
   var CW2=960,CH2=200;
-  box.addEventListener('mousemove',function(ev){
+  function onPoint(clientX,clientY){
     var r=box.getBoundingClientRect();
-    var ratio=(ev.clientX-r.left)/r.width;
+    var ratio=(clientX-r.left)/r.width;
     var i=Math.round(ratio*(WKPTS.length-1));
     i=Math.max(0,Math.min(WKPTS.length-1,i));
     var p=WKPTS[i];
@@ -358,9 +369,53 @@ let q='',npm='',zh='',act='',gr='',sort=-1,desc=false,page=0,PAGE=120;
     left=Math.max(34,Math.min(r.width-34,left));
     tip.style.left=left+'px';
     tip.style.top=(p.y/CH2*r.height)+'px';
-  });
+  }
+  box.addEventListener('mousemove',function(ev){ onPoint(ev.clientX,ev.clientY) });
+  box.addEventListener('touchmove',function(ev){ if(ev.touches[0])onPoint(ev.touches[0].clientX,ev.touches[0].clientY) },{passive:true});
   box.addEventListener('mouseleave',function(){dot.style.display='none';cross.style.display='none';tip.style.display='none'});
 })();
+
+// ---- global tooltip ([data-tip]) ----
+(function(){
+  var tip=document.createElement('div'); tip.className='gtip'; document.body.appendChild(tip);
+  function move(ev){ var x=ev.clientX+12,y=ev.clientY+14;
+    if(x+tip.offsetWidth>innerWidth-8)x=ev.clientX-tip.offsetWidth-12;
+    if(y+tip.offsetHeight>innerHeight-8)y=ev.clientY-tip.offsetHeight-14;
+    tip.style.left=x+'px'; tip.style.top=y+'px' }
+  document.addEventListener('mouseover',function(ev){
+    var t=ev.target.closest&&ev.target.closest('[data-tip]');
+    if(!t)return; tip.textContent=t.getAttribute('data-tip'); tip.style.display='block'; move(ev);
+  });
+  document.addEventListener('mousemove',function(ev){ if(tip.style.display==='block')move(ev) });
+  document.addEventListener('mouseout',function(ev){
+    if(ev.target.closest&&ev.target.closest('[data-tip]'))tip.style.display='none';
+  });
+})();
+
+// ---- donut segment ↔ legend sync ----
+document.querySelectorAll('.donutwrap').forEach(function(wrap){
+  var svg=wrap.querySelector('svg.donut'); if(!svg)return;
+  var segs=svg.querySelectorAll('.dseg');
+  var dnum=svg.querySelector('.dnum'),dlab=svg.querySelector('.dlab');
+  var total=svg.getAttribute('data-total');
+  function sel(i,on){
+    svg.classList.toggle('has-sel',on);
+    segs.forEach(function(s){ s.classList.toggle('sel',on&&s.getAttribute('data-i')===String(i)) });
+    wrap.querySelectorAll('.dleg').forEach(function(l){ l.classList.toggle('sel',on&&l.getAttribute('data-i')===String(i)) });
+    if(on){ var seg=svg.querySelector('.dseg[data-i="'+i+'"]');
+      var t=(seg.getAttribute('data-tip')||'').split(' · ');
+      dnum.textContent=t[1]?t[1].split('（')[0]:''; dlab.textContent=t[0]||''; }
+    else { dnum.textContent=total; dlab.textContent='总计' }
+  }
+  segs.forEach(function(s){
+    s.addEventListener('mouseenter',function(){ sel(s.getAttribute('data-i'),true) });
+    s.addEventListener('mouseleave',function(){ sel(0,false) });
+  });
+  wrap.querySelectorAll('.dleg').forEach(function(l){
+    l.addEventListener('mouseenter',function(){ sel(l.getAttribute('data-i'),true) });
+    l.addEventListener('mouseleave',function(){ sel(0,false) });
+  });
+});
 
 // ---- table ----
 function filtered(){
