@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>开放数据 · DSH Insights</title>
 <meta name="description" content="DSH Insights 开放数据集：稳定 URL、可复核口径、CC BY 4.0。">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="../logo.svg">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta property="og:title" content="开放数据">
 <meta property="og:description" content="DSH Insights 开放数据集：稳定 URL、可复核口径、CC BY 4.0。">
 <meta property="og:type" content="website">
@@ -26,7 +29,7 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 [id]{scroll-margin-top:70px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:650;font-size:14px;color:var(--ink);white-space:nowrap}
 .brand:hover{text-decoration:none}
-.mark{width:22px;height:22px;border-radius:6px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:700 12px/1 var(--mono)}
+.mark{width:22px;height:22px;display:inline-flex;flex:none}
 .brand small{color:var(--faint);font-weight:400;font-size:12px}
 .nav{display:flex;align-items:center;gap:2px}
 .nav a{color:var(--mut);font-size:13px;padding:5px 10px;border-radius:7px}
@@ -79,14 +82,14 @@ footer{margin:40px 0 48px;padding-top:18px;border-top:1px solid var(--line);colo
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <a class="brand" href="../"><span class="mark">d</span>DSH Insights<small>DeepSeek Harness 全景观察站</small></a>
+  <a class="brand" href="../"><span class="mark"><svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="14" fill="var(--ink)"/><path d="M10 32 Q32 14 54 32 Q32 50 10 32 Z" fill="none" stroke="var(--bg)" stroke-width="4" stroke-linejoin="round"/><path d="M19 32 h6 l4 -8 l6 16 l4 -8 h6" fill="none" stroke="var(--bg)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>DSH Insights<small>DeepSeek Harness 全景观察站</small></a>
   <nav class="nav"><a href="../">仪表盘</a><a href="../dynamics/">动态</a><a href="../scenarios/">场景</a><a href="../authors/">作者</a><a href="../weekly/">周报</a><a href="../data/" class="here">开放数据</a><a href="../badge/">徽章</a><a href="../about/">关于</a><a href="https://github.com/ice5kysl/dsh-insights" target="_blank">GitHub ↗</a></nav>
 </div></div>
 <main class="wrap">
 <div class="content">
 <p class="crumb">Open Data</p><h1 class="pagetitle">开放数据</h1>
 <p class="lede">全量、可复核、持续更新。URL 稳定（公布即不变更），agent 可直接抓取，无需登录。使用请注明出处（CC BY 4.0）。</p>
-<div class="cards"><div class="card"><b>全量洞察快照（agent 首选入口）</b><code>/data/insights.json</code><p>2116 KB · <a href="insights.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>权威集全量（一行一插件）</b><code>/data/plugins.jsonl</code><p>4675 KB · <a href="plugins.jsonl">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>噪声分桶（被拒候选 + reason）</b><code>/data/invalid.jsonl</code><p>1495 KB · <a href="invalid.jsonl">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>每插件评分 / 等级 / 分类 / 收录渠道</b><code>/data/enrich.json</code><p>1983 KB · <a href="enrich.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>聚合统计（仪表盘数据源）</b><code>/data/analysis.json</code><p>1093 KB · <a href="analysis.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>权威集表格（25 列，Excel 友好）</b><code>/data/plugins.csv</code><p>908 KB · <a href="plugins.csv">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>npm 周下载（CI 更新）</b><code>/data/downloads.json</code><p>5 KB · <a href="downloads.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>收录渠道清单（awesome / imsai）</b><code>/data/listed.json</code><p>55 KB · <a href="listed.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div></div>
+<div class="cards"><div class="card"><b>全量洞察快照（agent 首选入口）</b><code>/data/insights.json</code><p>2116 KB · <a href="insights.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>权威集全量（一行一插件）</b><code>/data/plugins.jsonl</code><p>4795 KB · <a href="plugins.jsonl">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>噪声分桶（被拒候选 + reason）</b><code>/data/invalid.jsonl</code><p>1533 KB · <a href="invalid.jsonl">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>每插件评分 / 等级 / 分类 / 收录渠道</b><code>/data/enrich.json</code><p>1983 KB · <a href="enrich.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>聚合统计（仪表盘数据源）</b><code>/data/analysis.json</code><p>1093 KB · <a href="analysis.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>权威集表格（25 列，Excel 友好）</b><code>/data/plugins.csv</code><p>908 KB · <a href="plugins.csv">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>npm 周下载（CI 更新）</b><code>/data/downloads.json</code><p>5 KB · <a href="downloads.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div><div class="card"><b>收录渠道清单（awesome / imsai）</b><code>/data/listed.json</code><p>55 KB · <a href="listed.json">下载</a> · <a href="https://github.com/ice5kysl/dsh-insights/blob/main/docs/SCHEMA.md" target="_blank">schema</a></p></div></div>
 <h2 style="font-size:16px;margin:28px 0 8px">许可与口径</h2>
 <p class="lede">代码 <b>MIT</b> · 数据 <b>CC BY 4.0</b>（署名：dsh-insights.com）。「权威集」= 非 fork/归档 + package.json 声明 dsh.bundle.patch 且 patch 已提交（下限口径）。健康分为启发式评估，<b>非安全审计</b>。</p>
 <h2 style="font-size:16px;margin:28px 0 8px">调用示例</h2>
