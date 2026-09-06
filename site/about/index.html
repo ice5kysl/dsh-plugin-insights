@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>方法论 · dsh-insights</title>
+<meta name="description" content="dsh-insights 评估口径、规则阈值、校准与边界声明。">
+<meta property="og:title" content="方法论">
+<meta property="og:description" content="dsh-insights 评估口径、规则阈值、校准与边界声明。">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --bg:#fafafa;--card:#ffffff;--ink:#18181b;--mut:#71717a;--faint:#a1a1aa;--line:#e4e4e7;--track:#f4f4f5;
+  --accent:#2563eb;--ok:#059669;--warn:#d97706;--err:#dc2626;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#09090b;--card:#101012;--ink:#f4f4f5;--mut:#a1a1aa;--faint:#71717a;--line:#26262a;--track:#17171a;--accent:#60a5fa}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+.topbar{border-bottom:1px solid var(--line);background:var(--card)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:16px;max-width:1200px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:650;font-size:14px;color:var(--ink);white-space:nowrap}
+.brand:hover{text-decoration:none}
+.mark{width:22px;height:22px;border-radius:6px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:700 12px/1 var(--mono)}
+.brand small{color:var(--faint);font-weight:400;font-size:12px}
+.nav{display:flex;align-items:center;gap:2px}
+.nav a{color:var(--mut);font-size:13px;padding:5px 10px;border-radius:7px}
+.nav a:hover{color:var(--ink);background:var(--track);text-decoration:none}
+.nav a.here{color:var(--ink);font-weight:650}
+@media(max-width:720px){.brand small{display:none}.nav a{padding:5px 7px;font-size:12.5px}}
+main{padding:40px 0 8px}
+.crumb{font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+h1.pagetitle{margin:0 0 8px;font-size:clamp(22px,3.4vw,30px);font-weight:700;letter-spacing:-.02em;line-height:1.25}
+.lede{color:var(--mut);font-size:14px;margin:0 0 28px;max-width:68ch}
+.article h1{font-size:22px;margin:34px 0 10px;letter-spacing:-.02em}
+.article h2{font-size:18px;margin:30px 0 8px;letter-spacing:-.01em}
+.article h3{font-size:15px;margin:24px 0 6px}
+.article h4{font-size:13.5px;margin:20px 0 6px}
+.article p{margin:10px 0}
+.article ul,.article ol{margin:10px 0;padding-left:22px}
+.article li{margin:4px 0}
+.article blockquote{margin:14px 0;padding:10px 14px;border-left:3px solid var(--line);color:var(--mut);background:var(--track);border-radius:0 8px 8px 0;font-size:13px}
+.article code{font:12.5px var(--mono);background:var(--track);border-radius:5px;padding:1px 5px}
+.article pre{background:var(--track);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow:auto;font-size:12.5px}
+.article pre code{background:none;padding:0}
+.article table{width:100%;border-collapse:collapse;font-size:12.5px;margin:14px 0}
+.article th{color:var(--mut);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.05em;text-align:left}
+.article th,.article td{padding:7px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+.article hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+.article strong{font-weight:650}
+.grade{display:inline-block;min-width:22px;text-align:center;font:700 11px/1.5 var(--mono);border-radius:5px;padding:1px 6px;border:1px solid}
+.grade.A{color:var(--ok);background:color-mix(in srgb,var(--ok) 9%,transparent);border-color:color-mix(in srgb,var(--ok) 32%,transparent)}
+.grade.B{color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,transparent);border-color:color-mix(in srgb,var(--accent) 32%,transparent)}
+.grade.C{color:var(--warn);background:color-mix(in srgb,var(--warn) 10%,transparent);border-color:color-mix(in srgb,var(--warn) 35%,transparent)}
+.grade.D{color:var(--err);background:color-mix(in srgb,var(--err) 9%,transparent);border-color:color-mix(in srgb,var(--err) 32%,transparent)}
+.listrow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:12px 2px;border-bottom:1px solid var(--line)}
+.listrow a{font-weight:600;color:var(--ink)}
+.listrow a:hover{color:var(--accent)}
+.listrow .meta{color:var(--faint);font:12px var(--mono);white-space:nowrap}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.card b{display:block;font-size:13px;margin-bottom:4px}
+.card code{font:12px var(--mono);color:var(--accent);word-break:break-all}
+.card p{margin:6px 0 0;font-size:12px;color:var(--mut)}
+.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:11.5px;color:var(--mut);margin:0 6px 6px 0}
+footer{margin:40px 0 48px;padding-top:18px;border-top:1px solid var(--line);color:var(--faint);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <a class="brand" href="../"><span class="mark">d</span>dsh-insights<small>DSH 插件与生态洞察</small></a>
+  <nav class="nav"><a href="../">仪表盘</a><a href="../weekly/">周报</a><a href="../data/">开放数据</a><a href="../about/" class="here">方法论</a><a href="https://github.com/ice5kysl/dsh-plugin-insights" target="_blank">GitHub ↗</a></nav>
+</div></div>
+<main class="wrap">
+<p class="crumb">Methodology</p><h1 class="pagetitle">方法论与边界</h1>
+<p class="lede">我们把口径公开到可以被反驳的程度——这是策展人和官方敢引用我们的前提。</p>
+<div class="article">
+<h2>权威集门禁</h2>
+<p>非 fork / 非归档 · <code>package.json</code> 声明 <code>dsh.bundle.patch</code> · patch 文件已提交。这是下限口径：纯 tarball 分发的插件会进入分桶人工复核（<code>invalid.jsonl</code>）。</p>
+<h2>健康分（health-v1）</h2>
+<p>基分 25 + 加分项（manifest 清单 / README / 双语文档 / LICENSE / 构建产物 / client 导出 / npm 发布 / 版本同步 / 活跃度等）。阈值：<span class="grade A">A ≥ 90</span> <span class="grade B">B ≥ 72</span> <span class="grade C">C ≥ 52</span> <span class="grade D">D</span>。每项打分带证据；缺数据明说降级，不乱判。</p>
+<h2>校准</h2>
+<p>已知真/假插件编入校准集，每次快照跑回归（<code>stages/07-regress.mjs</code>），回归非 100% 则当周快照不发布。口径变更必须 bump 规则版本并写 changelog。</p>
+<h2>边界声明</h2>
+<p>启发式评估 ≠ 安全审计。不做社区评分/投票、不做安装托管交易、不做登录产品。深检（写面/消毒）为增量信号，单独标注。</p>
+<h2>可复核</h2>
+<p>数据、规则、管线全部开源：<a href="https://github.com/ice5kysl/dsh-plugin-insights" target="_blank">GitHub</a>。发现误判请提 issue —— 争议工单本身是公信力指标（见指标体系 C2）。</p>
+</div>
+<footer>
+  <span>由 <a href="https://github.com/ice5kysl/dsh-plugin-insights" target="_blank">dsh-plugin-insights</a> 管线自动生成</span>
+  <span>零依赖 · 启发式评估，非安全审计 · 数据 CC BY 4.0 / 代码 MIT</span>
+</footer>
+</main>
+</body>
+</html>
